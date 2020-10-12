@@ -1,16 +1,29 @@
 package com.heroku.qbase.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import com.heroku.qbase.entity.Quiz;
+import com.heroku.qbase.service.QuizService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 public class MainController {
 
-    @RequestMapping("/")
-    @ResponseBody
+    @Autowired
+    private QuizService quizService;
+
+    @GetMapping("/")
     String home() {
-        return "Hello World!";
+        return "Quiz database";
+    }
+
+    @GetMapping("/quiz/{id}")
+    public Quiz getQuiz(@PathVariable String id) {
+        return quizService.findById(id);
+    }
+
+    @GetMapping("/random")
+    public Quiz getRandomQuiz() {
+        return quizService.getRandomQuiz();
     }
 
 }
