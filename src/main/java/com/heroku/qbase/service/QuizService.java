@@ -5,8 +5,6 @@ import com.heroku.qbase.repositopy.QuizRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Random;
-
 @Service
 public class QuizService {
 
@@ -21,8 +19,8 @@ public class QuizService {
         return findById(Long.parseLong(id));
     }
 
-    public Quiz getRandomQuiz() {
-        return findById((long) new Random().nextInt((int) quizRepository.count()) + 1);
+    public Quiz getRandomQuizWithRightAnswer() {
+        return quizRepository.findRandomQuizWithRightAnswer();
     }
 
 }

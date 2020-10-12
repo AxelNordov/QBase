@@ -23,7 +23,7 @@ public class MainController {
 
     @GetMapping("/random")
     public Quiz getRandomQuiz() {
-        return quizService.getRandomQuiz();
+        return quizService.getRandomQuizWithRightAnswer();
     }
 
 }
