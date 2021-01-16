@@ -16,4 +16,11 @@ public interface QuizRepository extends JpaRepository<Quiz, Long> {
             "LIMIT 1;", nativeQuery = true)
     Quiz findRandomQuizWithRightAnswer();
 
+    @Query(value = "" +
+            "SELECT * " +
+            "FROM quiz " +
+            "ORDER BY random() " +
+            "LIMIT 1;", nativeQuery = true)
+    Quiz findRandomQuiz();
+
 }

@@ -23,4 +23,8 @@ public class QuizService {
         return quizRepository.findRandomQuizWithRightAnswer();
     }
 
+    public Quiz getRandomQuiz() {
+        return quizRepository.findRandomQuiz();
+    }
+
 }
