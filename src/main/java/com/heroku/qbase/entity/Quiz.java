@@ -3,7 +3,6 @@ package com.heroku.qbase.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @Entity
@@ -14,7 +13,6 @@ public class Quiz {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-
     @Column(name = "subject")
     private String subject;
     @Column(name = "sub_subject")
@@ -25,6 +23,16 @@ public class Quiz {
     private Integer originalQuestionNumber;
     @Column(name = "question")
     private String question;
+    @Column(name = "answer_1")
+    private String answer1;
+    @Column(name = "answer_2")
+    private String answer2;
+    @Column(name = "answer_3")
+    private String answer3;
+    @Column(name = "answer_4")
+    private String answer4;
+    @Column(name = "answer_5")
+    private String answer5;
     @Column(name = "right_answer")
     private Integer rightAnswer;
     @Column(name = "one_answer")
@@ -37,8 +45,5 @@ public class Quiz {
     private String link2;
     @Column(name = "link_source", length = 1024)
     private String linkSource;
-
-    @OneToMany(mappedBy = "quiz")
-    private List<Answer> answers;
 
 }
